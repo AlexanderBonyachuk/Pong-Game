@@ -17,5 +17,11 @@ public class Main {
         window.setVisible(true);                    // видимость окна
         window.setLocation(1500, 400);        // расположение окна
         window.add(game);                           // добавление логики
+        /* без строчки ниже в jar-нике не считывалось нажатие Enter
+        * игра не начиналась, но если в начале убрать считвание Enter (keyReleased)
+        *, то клавиши вверх/вниз считывались нормально
+        * странно ведь переходя в конструктор Logiс() есть setFocusable(true) (?)
+        * */
+        game.setFocusable(true);
     }
 }

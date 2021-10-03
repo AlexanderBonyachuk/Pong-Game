@@ -2,10 +2,7 @@ package com.company;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
+import java.awt.event.*;
 
 // класс наследуется от Джава Панели и реализует интерфейсы Обработчик событий и Слушатель клавиш
 public class Logiс extends JPanel implements ActionListener, KeyListener {
@@ -22,8 +19,8 @@ public class Logiс extends JPanel implements ActionListener, KeyListener {
 
     public Logiс() {
         addKeyListener(this);
+        setFocusable(true);                            // отслеживаем нажатие клавиш
         timer = new Timer(10, this);       // таймер, который обновляется через 10 микросекунд
-        setFocusable(true);                            // чтобы окошко связывалось с клавишами
     }
 
     @Override                                        // прорисовка Объектов
@@ -136,7 +133,7 @@ public class Logiс extends JPanel implements ActionListener, KeyListener {
 
     @Override
     public void keyReleased(KeyEvent e) {
-        if (e.getKeyCode() == KeyEvent.VK_ENTER) {     // если нажата клавиша ENTER
+        if (e.getKeyCode() == KeyEvent.VK_ENTER) {     // если нажата клавиша ENTER VK_ENTER
             timer.start();                             // запуск таймера - запуск игры
             start = false;
         }
